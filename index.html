@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .blog-entry {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+        .blog-entry h2 {
+            margin: 0;
+        }
+        .blog-entry .date {
+            color: gray;
+            font-size: 0.9em;
+        }
+        .blog-content {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Blog</h1>
+        <div id="blog-list"></div>
+    </div>
+    <script>
+        const blogs = [
+            { title: "First Post", date: "March 20, 2025", content: "This is the content of the first blog post." },
+            { title: "Another Update", date: "March 21, 2025", content: "Here's another update with some more details." }
+        ];
+
+        function renderBlogs() {
+            const blogList = document.getElementById("blog-list");
+            blogList.innerHTML = "";
+            blogs.forEach((blog, index) => {
+                const blogEntry = document.createElement("div");
+                blogEntry.classList.add("blog-entry");
+                blogEntry.innerHTML = `
+                    <h2>${blog.title}</h2>
+                    <p class="date">${blog.date}</p>
+                    <div class="blog-content">${blog.content}</div>
+                `;
+                blogEntry.addEventListener("click", () => {
+                    const content = blogEntry.querySelector(".blog-content");
+                    content.style.display = content.style.display === "none" ? "block" : "none";
+                });
+                blogList.appendChild(blogEntry);
+            });
+        }
+
+        renderBlogs();
+    </script>
+</body>
+</html>
