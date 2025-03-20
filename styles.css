@@ -1,0 +1,51 @@
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #111;
+    color: #ddd;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: black;
+    padding: 20px 0;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow;
+    animation: flicker 1.5s infinite alternate;
+    transition: opacity 0.5s;
+}
+.container {
+    max-width: 600px;
+    margin: 120px auto 20px;
+    background: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+}
+.blog-entry {
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.blog-entry h2 {
+    margin: 0;
+    color: #ff4500;
+}
+.blog-entry .date {
+    color: gray;
+    font-size: 0.9em;
+}
+.blog-content {
+    display: none;
+    margin-top: 10px;
+    color: #ccc;
+}
